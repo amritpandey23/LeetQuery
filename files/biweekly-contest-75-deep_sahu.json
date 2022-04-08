@@ -1,0 +1,20 @@
+{
+    "rank": 9572,
+    "username": "deep_sahu",
+    "score": 7,
+    "finish_time": "01:08:21",
+    "Q1": {
+        "solve_time": "01:08:21",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string binary(int d)\n    {\n        string s;\n        while(d>0)\n        {\n            int rem=d%2;\n            s+=(rem+'0');\n            d=d/2;\n        }\n        // reverse(s.begin(),s.end());\n        return s;\n    }\n    int minBitFlips(int start, int goal) {\n        int c=0;\n        string s1=binary(start);\n        string s2=binary(goal);\n        int n1=s1.length();\n        int n2=s2.length();\n        if(n1>n2)\n        {\n            for(int i=0;i<n1-n2;i++)\n            {\n                s2+='0';\n            }\n        }\n        else\n        {\n            for(int i=0;i<n2-n1;i++)\n            {\n                s1+='0';\n            }\n        }\n        // int m=max(n1,n2);\n        for(int i=0;i<s1.length();i++)\n        {\n            if(s1[i]!=s2[i])\n                c++;\n        }\n        return c;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "01:02:12",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int triangularSum(vector<int>& nums) {\n        \n        while(nums.size()!=1)\n        {\n                vector<int> v;\n            for(int i=0;i<nums.size()-1;i++)\n            {\n                int sum=(nums[i]+nums[i+1])%10;\n                v.push_back(sum);\n            }\n            nums.erase(nums.begin(),nums.end());\n            for(int i=0;i<v.size();i++)\n            {\n                nums.push_back(v[i]);\n            }\n            // nums=v;\n            // v.clear();\n        }\n        return nums[0];\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

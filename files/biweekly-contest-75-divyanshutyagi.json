@@ -1,0 +1,25 @@
+{
+    "rank": 4941,
+    "username": "divyanshutyagi",
+    "score": 12,
+    "finish_time": "01:50:49",
+    "Q1": {
+        "solve_time": "00:06:02",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int minBitFlips(int start, int goal) {\n        int map = 1;\n        int cnt{0};\n        while (map <= start || map <= goal) {\n            cnt += ( (map&start) != (map&goal) );\n            map <<= 1;\n        }\n        return cnt;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:11:07",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int triangularSum(vector<int>& nums) {\n        if (nums.size() == 1)   return nums[0];\n        vector<int> newNums(nums.size()-1);\n        for (int i = 0; i < nums.size()-1; i++) {\n            newNums[i] = (nums[i] + nums[i+1])%10;\n        }\n        return triangularSum(newNums);\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "01:25:49",
+        "fail_count": 5,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long numberOfWays(string s) {\n        unordered_map<int,int> mp;\n        vector<int> ones, zeros;\n        int n = s.length();\n        int firstZeroIdx = -1, firstOneIdx = -1;\n        for (int i = n-1; i >= 0; i--) {\n            if (s[i] == '1') {\n                firstOneIdx = i;\n                mp[i] = zeros.size();\n                ones.push_back(i);\n            } else {\n                firstZeroIdx = i;\n                mp[i] = ones.size();\n                zeros.push_back(i);\n            }\n        }\n        long long zerosComb = 0;\n        long long onesComb = 0;\n        for (int j = 0; j < ones.size(); j++) {\n            if (ones[j] > firstZeroIdx)\n                zerosComb += mp[ones[j]];\n        }\n        for (int j = 0; j < zeros.size(); j++) {\n            if (zeros[j] > firstOneIdx)\n                onesComb += mp[zeros[j]];\n        }\n        // cout << onesComb << \" \" << zerosComb << endl;\n        // cout << firstOneIdx << \" \" << firstZeroIdx << endl;\n        // cout << \"---------------\" << endl;\n        long long cnt = onesComb + zerosComb;\n        if (cnt == 0)   return cnt;\n        \n        // cout << \"[\" << firstOneIdx << \"] : \" << endl;\n        for (int i = firstOneIdx + 1; i < n-2; i++) {\n            if (s[i] == '1') {\n                cnt += onesComb;\n            } else {\n                onesComb -= mp[i];\n            }\n            // cout << '\\t' << i << \" : \" << cnt << \" : \" << onesComb << endl;\n        }\n        \n        // cout << \"[\" << firstZeroIdx << \"] : \" << endl;\n        for (int i = firstZeroIdx + 1; i < n-2; i++) {\n            if (s[i] == '0') {\n                cnt += zerosComb;\n            } else {\n                zerosComb -= mp[i];\n            }\n            // cout << '\\t' << i << \" : \" << cnt << \" : \" << zerosComb << endl;\n        }\n        \n        return cnt;\n    }\n};"
+    },
+    "Q4": {}
+}

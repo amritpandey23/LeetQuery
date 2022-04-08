@@ -1,0 +1,20 @@
+{
+    "rank": 9751,
+    "username": "mileni03",
+    "score": 7,
+    "finish_time": "01:15:00",
+    "Q1": {
+        "solve_time": "00:31:17",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n   \n    int minBitFlips(int start, int goal) {\n        int c=0;\n      while(start>0||goal>0)\n      {\n         //cout<<start%2<<\" \"<<goal%2<<\"   \"<<c<<endl;\n          //cout<<start<<\" \"<<goal<<\"   \"<<c<<endl;\n          if((start%2==1&&goal%2==0)||(start%2==0&&goal%2==1))\n          {\n             // cout<<start<<\" \"<<goal<<endl;\n              c++;\n          }\n          start/=2;\n          goal/=2;\n      }\n      \n        return c;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:55:00",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int triangularSum(vector<int>& nums) {\n    stack<int> s,s2;\n    for(int i=0;i<nums.size();i++)\n    {\n        s.push(nums[i]);\n    }\n     if(nums.size()==1)\n         return nums[0]%10;\n     int sum=0,i=0;\n     while(i<nums.size())\n     {\n         while(!s.empty())\n         {\n             if(s.size()==1)\n             {\n                 s.pop();\n                 break;\n             }\n             sum=s.top();\n             s.pop();\n             if(!s.empty())\n             sum+=s.top();\n             //cout<<sum%10<<\" \";\n             s2.push(sum%10);\n         }\n         //cout<<endl;\n         if(s2.size()==0)\n             return sum%10;\n         while(!s2.empty())\n         {\n             if(s2.size()==1)\n             {\n                 s2.pop();\n                 break;\n             }\n             sum=s2.top();\n             s2.pop();\n             if(!s2.empty())\n             sum+=s2.top();\n             //cout<<sum%10<<\" \";\n             s.push(sum%10); \n         }\n         //cout<<endl;\n         i+=2;\n     }\n        return (sum%10);\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}
