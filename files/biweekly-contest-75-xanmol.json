@@ -1,0 +1,25 @@
+{
+    "rank": 2862,
+    "username": "xanmol",
+    "score": 12,
+    "finish_time": "00:42:41",
+    "Q1": {
+        "solve_time": "00:16:11",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string F(int x){\n        string A;\n        while(x){\n            x % 2 ? A.push_back('1') : A.push_back('0');\n            x /= 2;\n        }\n        //reverse(A.begin(),A.end());\n        return A;\n    }\n    int minBitFlips(int x, int y) {\n        int Ans = 0;\n        string A = F(x),B = F(y);\n        int N = A.length(),M = B.length();\n        while(N > M){\n            B.push_back('0');\n            M++;\n        }\n        while(M > N){\n            A.push_back('0');\n            N++;\n        }\n        for(int i = 0;i < N;i++){\n            Ans += (A[i] != B[i]);\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:21:25",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int triangularSum(vector<int>& A) {\n        int N = A.size();\n        while(N != 1){\n            vector<int> T;\n            N--;\n            for(int i = 1;i < A.size();i++){\n                T.push_back((A[i] + A[i-1]) % 10);\n            }\n            A = T;\n        }\n        return A[0];\n    }  \n};"
+    },
+    "Q3": {
+        "solve_time": "00:37:41",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long numberOfWays(string A) {\n        int N = A.length();\n        vector<int> lo(N,0),ro(N,0),lz(N,0),rz(N,0);\n        \n        if(A[0] == '1') lo[0]++;\n        else lz[0]++;\n        \n        if(A.back() == '1') ro[N-1]++;\n        else rz[N-1]++;\n        \n        for(int i = 1;i < N;i++){\n            lo[i] += (lo[i-1] + (A[i] == '1'));\n            lz[i] += (lz[i-1] + (A[i] == '0'));\n        }\n        for(int i = N - 2;i >= 0;i--){\n            ro[i] += (ro[i+1] + (A[i] == '1'));\n            rz[i] += (rz[i+1] + (A[i] == '0'));\n        }\n        long long Ans = 0;\n        for(int i = 1;i < N - 1;i++){\n            if(A[i] == '0'){\n                Ans += (1ll * lo[i-1] * ro[i+1]);\n            }\n            else{\n                Ans += (1ll * lz[i-1] * rz[i+1]);\n            }\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q4": {}
+}
