@@ -1,0 +1,25 @@
+{
+    "rank": 4102,
+    "username": "xanmol",
+    "score": 12,
+    "finish_time": "01:17:04",
+    "Q1": {
+        "solve_time": "00:03:26",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int findClosestNumber(vector<int>& A) {\n        int Ans = INT_MAX,dist = INT_MAX;\n        for(auto i : A){\n            if(abs(i) < dist){\n                dist = abs(i);\n                Ans = i;\n            }\n            if(abs(i) == dist && Ans < i) Ans = i;\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:08:06",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "#define ll long long\nclass Solution {\npublic:\n    long long waysToBuyPensPencils(int total, int x, int y) {\n        ll Ans = 0;\n        int mxPc = total / x,mxPn = total / y;\n        for(int i = 0;i <= mxPc;i++){\n            int rem = total - i * x;\n            Ans += (0ll + rem/y + 1);\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "00:57:04",
+        "fail_count": 4,
+        "lang": "cpp",
+        "code": "#define F first\n#define S second\nclass ATM {\npublic:\n    vector<pair<long,long>> A;\n    ATM() {\n        A.resize(5);\n        A[0].F = 20;\n        A[0].S = 0;\n        A[1].F = 50;\n        A[1].S = 0;\n        A[2].F = 100;\n        A[2].S = 0;\n        A[3].F = 200;\n        A[3].S = 0;\n        A[4].F = 500;\n        A[4].S = 0;\n    }\n    \n    void deposit(vector<int> B) {\n        for(int i = 0;i < 5;i++){\n            A[i].S += (0ll + B[i]);\n        }\n    }\n    \n    vector<int> withdraw(int x) {\n        vector<int> Ans(5,0);\n        for(int i = 4;i >= 0;i--){\n            long cnt = A[i].S;\n            long den = A[i].F;\n            \n            if(x < den) continue;\n            \n            int cc = x / den;\n            \n            if(cc >= cnt){\n                Ans[i] = cnt;\n                x -= cnt*den;\n            }\n            else{\n                Ans[i] = cc;\n                x -= cc*den;\n            }\n        }\n        if(x == 0){\n            for(int i = 0;i < 5;i++){\n                A[i].S -= Ans[i];\n            }\n            return Ans;\n        }\n        return {-1};\n    }\n};\n\n/**\n * Your ATM object will be instantiated and called as such:\n * ATM* obj = new ATM();\n * obj->deposit(banknotesCount);\n * vector<int> param_2 = obj->withdraw(amount);\n */"
+    },
+    "Q4": {}
+}

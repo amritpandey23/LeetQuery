@@ -1,0 +1,25 @@
+{
+    "rank": 4716,
+    "username": "jdmc20112",
+    "score": 12,
+    "finish_time": "01:30:15",
+    "Q1": {
+        "solve_time": "00:41:51",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int findClosestNumber(vector<int>& nums) {\n        int ans=INT_MAX,fans=INT_MIN;\n        for(auto it:nums)\n        {\n            if(abs(it)<ans)\n            {\n                ans=abs(it);\n                fans=it;\n            }\n            else\n                if(abs(it)==ans && it>fans)\n                    fans=it;\n                \n        }\n        return fans;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:56:09",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long waysToBuyPensPencils(int total, int cost1, int cost2) {\n        long long ans=0;\n        \n        int i=0;\n        while(1)\n        {\n            int c=cost1*i;\n            if(c>total)\n                break;\n            c=total-c;\n            ans+=(c/cost2)+1;\n            i++;\n        }\n        return ans;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "01:20:15",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class ATM {\n    long long atm[5],amt[5]={20,50,100,200,500};\npublic:\n    ATM() {\n        for(int i=0;i<5;i++)\n                atm[i]=0;\n    }\n    \n    void deposit(vector<int> banknotesCount) {\n        for(int i=0;i<5;i++)\n        {\n            atm[i]+=banknotesCount[i];\n           \n        }\n    }\n    \n    vector<int> withdraw(int amount) {\n        int i=4;\n        vector<int> ans(5,0);\n        while(amount && i>-1)\n        {\n            if(atm[i] && amount/amt[i])\n            {\n                int t=min(amount/amt[i],atm[i]);\n                amount-=amt[i]*t;\n                ans[i] =t;\n            }\n            i--;\n        }\n        \n        if(amount)\n            return {-1};\n        else\n        {\n            for(int i=0;i<5;i++)\n                atm[i]-=ans[i];\n            return ans;\n        }\n    }\n};\n\n/**\n * Your ATM object will be instantiated and called as such:\n * ATM* obj = new ATM();\n * obj->deposit(banknotesCount);\n * vector<int> param_2 = obj->withdraw(amount);\n */"
+    },
+    "Q4": {}
+}

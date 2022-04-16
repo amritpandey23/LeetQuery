@@ -1,0 +1,15 @@
+{
+    "rank": 6303,
+    "username": "mileni03",
+    "score": 3,
+    "finish_time": "00:04:15",
+    "Q1": {
+        "solve_time": "00:04:15",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int findClosestNumber(vector<int>& nums) {\n       int diff=INT_MAX,num;\n        sort(nums.begin(),nums.end());\n       for(int i=0;i<nums.size();i++)\n       {\n           if(abs(nums[i]-0)<=diff)\n           {\n              num=nums[i];\n               diff=abs(nums[i]-0);\n           }\n       }\n        return num;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}
