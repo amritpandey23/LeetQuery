@@ -1,0 +1,15 @@
+{
+    "rank": 10823,
+    "username": "23Shree",
+    "score": 3,
+    "finish_time": "00:48:16",
+    "Q1": {
+        "solve_time": "00:38:16",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int findClosestNumber(vector<int>& nums) {\n         int ans=INT_MAX;\n        int val;\n        for(auto x:nums){\n            if(abs(x)<ans){\n                ans=abs(x);\n                val=x;\n            }\n            else if(abs(x)==ans){\n                if(val<x){\n                    val=x;\n                }\n            }\n        }\n        \n        return val;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}
