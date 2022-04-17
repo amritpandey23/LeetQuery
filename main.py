@@ -127,7 +127,7 @@ def query_contests(contest_name_list, username_list):
     return
 
 def main():
-    contest_name_list = ['biweekly-contest-76']
+    contest_name_list = ['weekly-contest-289']
     username_list = json.load(open('username.json', 'r'))
     print(contest_name_list)
     print(username_list)
