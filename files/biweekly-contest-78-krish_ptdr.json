@@ -1,0 +1,15 @@
+{
+    "rank": 10983,
+    "username": "krish_ptdr",
+    "score": 3,
+    "finish_time": "00:29:06",
+    "Q1": {
+        "solve_time": "00:29:06",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int divisorSubstrings(int num, int k) {\n        //int sum=0;\n        int c=0;\n        string n=to_string(num);\n        for(int i=0;i<n.size()-k+1;i++)\n        {\n            int p=k;\n            int j=i;\n            string s=\"\";\n        while(p--)\n        {\n            s+=n[j];\n            j++;\n        \n        }\n            //cout<<s<<endl;\n            int m=stoi(s);\n            if(m!=0){\n            if(num%m==0)\n                c++;}\n        }\n        return c;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

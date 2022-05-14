@@ -1,0 +1,15 @@
+{
+    "rank": 11457,
+    "username": "deep_sahu",
+    "score": 3,
+    "finish_time": "01:01:48",
+    "Q1": {
+        "solve_time": "00:51:48",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string putInstring(int n)\n    {\n        string s=\"\";\n        while(n>0)\n        {\n            s+=to_string(n%10);\n            n/=10;\n        }\n        reverse(s.begin(),s.end());\n        return s;\n    }\n    int divisorSubstrings(int num, int k) {\n        \n        string s=\"\";\n        \n        int cnt=0;\n        s=putInstring(num);\n        if(s.length()==1 and k==1)\n            return 1;\n        int i=0;\n        int t=k;\n        while(s.length()-k>=i)\n        {\n            int j=i;\n            int ans=0;\n            while(t--)\n            {\n                ans = ans*10 + (s[j++]-'0');\n            }\n            i++;\n            if(ans!=0)\n            {\n                if(num%ans==0)\n                    cnt++;\n            }\n            t=k;\n        }\n        return cnt;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

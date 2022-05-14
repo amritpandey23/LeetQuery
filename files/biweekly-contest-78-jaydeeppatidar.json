@@ -1,0 +1,20 @@
+{
+    "rank": 4553,
+    "username": "jaydeeppatidar",
+    "score": 7,
+    "finish_time": "00:21:12",
+    "Q1": {
+        "solve_time": "00:08:23",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int divisorSubstrings(int num, int k) {\n        int c=0;\n        string nums=to_string(num);\n        for(int i=0;i<=nums.size()-k;i++){\n            string s=nums.substr(i,k);\n            stringstream ss(s);\n            int a;\n            ss>>a;\n            if(a!=0&&num%a==0)\n                c++;\n            \n            \n}return c;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:16:12",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int waysToSplitArray(vector<int>& nums) {\n        long long sum1=0,sum2=0;\n        for(auto x:nums){\n            sum1+=x;\n        }\n        int c=0;\n        for(int i=0;i<nums.size()-1;i++){\n            sum2+=nums[i];\n            sum1-=nums[i];\n            if(sum2>=sum1)\n                c++;\n        }\n        return c;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}
