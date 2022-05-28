@@ -1,0 +1,25 @@
+{
+    "rank": 959,
+    "username": "dead11",
+    "score": 12,
+    "finish_time": "00:15:36",
+    "Q1": {
+        "solve_time": "00:03:14",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool digitCount(string A) {\n        int cnt[10] = {0};\n        for(auto i : A) cnt[i - '0']++;\n        for(int i = 0;i < A.length();i++){\n            if(cnt[i] != A[i] - '0') return 0;\n        }\n        return 1;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:08:07",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int cnt(string &A){\n        stringstream obj(A);\n        int c = 0;\n        string x;\n        while(obj>>x){\n            c++;\n        }\n        return c;\n    }\n    string largestWordCount(vector<string>& M, vector<string>& A) {\n        unordered_map<string,int> Mp;\n        int N = A.size();\n        for(int i = 0;i < N;i++){\n            int c = cnt(M[i]);\n            Mp[A[i]] += c;\n        }\n        int mx = 0;\n        string Ans;\n        for(auto [n,c] : Mp){\n            if(mx < c){\n                mx = c;\n                Ans = n;\n            }\n            else if(mx == c){\n                Ans = max(Ans,n);\n            }\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "00:15:36",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long maximumImportance(int N, vector<vector<int>>& A) {\n        vector<int> in(N,0);\n        for(auto i : A){\n            ++in[i[0]];\n            ++in[i[1]];\n        }\n        long long Ans = 0;\n        sort(in.begin(),in.end());\n        \n        for(int i = 0;i < N;i++){\n            Ans += 1ll * (i + 1) * (in[i]);\n        }\n        return Ans;\n    }\n};"
+    },
+    "Q4": {}
+}

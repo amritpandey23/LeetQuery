@@ -1,0 +1,20 @@
+{
+    "rank": 9156,
+    "username": "wickedpro",
+    "score": 7,
+    "finish_time": "00:15:15",
+    "Q1": {
+        "solve_time": "00:06:35",
+        "fail_count": 0,
+        "lang": "java",
+        "code": "class Solution {\n    public boolean digitCount(String num) {\n        int[] map = new int[10];\n        for (int i = 0; i < num.length(); i++) {\n            map[num.charAt(i) - '0']++;\n        }\n        for (int i = 0; i < num.length(); i++) {\n            if (map[i] != (num.charAt(i) - '0')) {\n                return false;\n            }\n        }\n        return true;\n    }\n}"
+    },
+    "Q2": {
+        "solve_time": "00:15:15",
+        "fail_count": 0,
+        "lang": "java",
+        "code": "class Solution {\n    public String largestWordCount(String[] messages, String[] senders) {\n        Map<String, Integer> map = new HashMap<>();\n        for (int i = 0; i < messages.length; i++) {\n            int wordCount = messages[i].split(\" \").length;\n            map.put(senders[i], map.getOrDefault(senders[i], 0) + wordCount);\n        }\n        int maxWordCount = 0;\n        String res = \"\";\n        for (Map.Entry<String, Integer> entry : map.entrySet()) {\n            if (entry.getValue() > maxWordCount) {\n                maxWordCount = entry.getValue();\n                res = entry.getKey();\n            } else if (entry.getValue() == maxWordCount) {\n                if (res.compareTo(entry.getKey()) < 0) {\n                    res = entry.getKey();\n                }\n            }\n        }\n        return res;\n    }\n}"
+    },
+    "Q3": {},
+    "Q4": {}
+}

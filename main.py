@@ -5,7 +5,7 @@ import signal
 signal.signal(signal.SIGINT, lambda a,b: exit())
 
 DIR = 'files'
-PAGE_RANGE = list(range(100,500)) ## + list(range(460,470))
+PAGE_RANGE = list(range(1,800)) ## + list(range(460,470))
 SPACES = " "*100
 
 def my_reqeust(url):
@@ -75,7 +75,6 @@ def get_records(contest_name, username_list):
                     user_n -= 1
                     rank = max(0, int(page * 25 // 100) * 100 - 100)
                     print(f'\rFound in page: {page:3d} rank:{rank:5d}+ user: {username} {SPACES}')
-                    # print(f'\r{records[username]["submissions"]}')
     return records
 
 def get_scoreboard(contest_name, username_list, start_time, questions, records):
@@ -127,17 +126,13 @@ def query_contests(contest_name_list, username_list):
     return
 
 def main():
-    contest_name_list = ['biweekly-contest-78']
+    contest_name_list = ['biweekly-contest-79']
     username_list = json.load(open('username.json', 'r'))
     print(contest_name_list)
     print(username_list)
     query_contests(contest_name_list, username_list)
     print(f'\r{SPACES}')
 
-for i in range(5): main()
+main()
 
-# contest_name_list = [f'biweekly-contest-{i}' for i in range(66,71+1)]
-# json.dumps(scoreboard, indent=4)
-# ['jasonisgod','leovincentseles']
-# [f'weekly-contest-{i}' for i in range(269,282+1)]
-# [f'biweekly-contest-{i}' for i in range(66,71+1)]
+# for i in range(5): main()

@@ -1,0 +1,20 @@
+{
+    "rank": 10472,
+    "username": "wickedpro",
+    "score": 7,
+    "finish_time": "00:24:53",
+    "Q1": {
+        "solve_time": "00:07:47",
+        "fail_count": 1,
+        "lang": "java",
+        "code": "class Solution {\n    public int percentageLetter(String s, char letter) {\n        int count = 0;\n        for (int i = 0; i < s.length(); i++) {\n            if (s.charAt(i) == letter) {\n                count++;\n            }\n        }\n        return (count * 100) / s.length();\n    }\n}"
+    },
+    "Q2": {
+        "solve_time": "00:19:53",
+        "fail_count": 0,
+        "lang": "java",
+        "code": "class Solution {\n    public int maximumBags(int[] capacity, int[] rocks, int additionalRocks) {\n        for (int i = 0; i < capacity.length; i++) {\n            capacity[i] = capacity[i] - rocks[i];\n        }\n        Arrays.sort(capacity);\n        int maxBags = 0;\n        for (int i = 0; i < capacity.length && additionalRocks > 0; ++i) {\n            if (capacity[i] == 0) {\n                maxBags++;\n            } else {\n                additionalRocks -= capacity[i];\n                if (additionalRocks < 0) {\n                    break;\n                }\n                capacity[i] = 0;\n                maxBags++;\n            }\n        }\n        return maxBags;\n    }\n}"
+    },
+    "Q3": {},
+    "Q4": {}
+}

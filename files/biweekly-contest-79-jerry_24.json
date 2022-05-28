@@ -1,0 +1,20 @@
+{
+    "rank": 12066,
+    "username": "jerry_24",
+    "score": 7,
+    "finish_time": "01:32:14",
+    "Q1": {
+        "solve_time": "01:17:14",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool digitCount(string num) {\n        map<int,char>m;\n        for(int i=0;i<num.size();i++){\n            m[i]=num[i];\n        }\n        for(auto z:m){\n            int mapVal=z.second-'0';\n            int c=0;\n            for(int i=0;i<num.size();i++){\n                if(num[i]-'0'==z.first)\n                    c++;\n            }\n            if(mapVal!=c)\n                return false;\n        }\n        return true;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "01:07:13",
+        "fail_count": 3,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string largestWordCount(vector<string>& messages, vector<string>& senders) {\n        map<string,int>m;\n        for(int i=0;i<messages.size();i++){\n            stringstream ss(messages[i]);\n            int c=0;\n            string stt=\"\";\n            while(ss>>stt){\n                c++;\n            }\n            while(c--)\n                m[senders[i]]++;\n        }\n        int maxVal=INT_MIN;\n        string ans=\"\";\n        for(auto z:m){\n            if(maxVal<z.second){\n                maxVal=z.second;\n                ans=z.first;\n            }\n            else if(maxVal==z.second)\n                ans=max(ans,z.first);\n        }\n        return ans;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

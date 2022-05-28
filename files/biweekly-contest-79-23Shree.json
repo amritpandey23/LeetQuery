@@ -1,0 +1,25 @@
+{
+    "rank": 3750,
+    "username": "23Shree",
+    "score": 12,
+    "finish_time": "00:35:46",
+    "Q1": {
+        "solve_time": "00:11:26",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool digitCount(string num) {\n              int arr[10];\n        for(int i=0;i<10;i++){\n            arr[i]=0;\n        }\n        \n        for(int i=0;i<num.length();i++){\n            arr[num[i]-'0']++;\n        }\n        \n        for(int i=0;i<num.length();i++){\n            \n            if((num[i]-'0')!=arr[i]){\n                return false;\n            }\n            \n        }\n        \n        return true;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:20:54",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string largestWordCount(vector<string>& messages, vector<string>& senders) {\n        map<string,int>mp;\n        int n=senders.size();\n        \n         for(int i=0;i<n;i++){\n             string message=messages[i];\n             string sender=senders[i];\n             \n            \n             stringstream ss(message);\n             string temp;\n             \n             while(ss>>temp){\n                 mp[sender]++;\n             }\n         }\n        string ans=\"\";\n         int count=INT_MIN;\n        for(auto x:mp){\n            // cout<<\" name \"<<x.first<<\" message count \"<<x.second<<endl; \n            if(count<=x.second){\n                ans=x.first;\n                count=x.second;\n            }\n        }\n        \n        return ans;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "00:30:46",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long maximumImportance(int n, vector<vector<int>>& roads) {\n             vector<int>indeg(n,0);\n           for(int i=0;i<roads.size();i++){\n               for(int j=0;j<roads[i].size();j++){\n                   int u=roads[i][0];\n                   int v=roads[i][1];\n                   indeg[u]++;\n                   indeg[v]++;\n              }\n           }\n        \n          priority_queue<pair<int,int>,vector<pair<int,int>>>pq;\n          for(int i=0;i<n;i++){\n              pq.push({indeg[i],i});\n          }\n        vector<int>value(n);\n        int k=n;\n        while(!pq.empty()){\n            pair<int,int>p;\n            p=pq.top();\n            pq.pop();\n            value[p.second]=k;\n            k--;\n        }\n        \n        long long ans=0;\n        \n        for(int i=0;i<roads.size();i++){\n            ans=ans+value[roads[i][0]]+value[roads[i][1]];\n        }\n        \n        return ans;\n    }\n};"
+    },
+    "Q4": {}
+}

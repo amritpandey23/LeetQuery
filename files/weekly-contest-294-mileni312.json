@@ -1,0 +1,20 @@
+{
+    "rank": 6933,
+    "username": "mileni312",
+    "score": 7,
+    "finish_time": "00:07:04",
+    "Q1": {
+        "solve_time": "00:02:27",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int percentageLetter(string s, char letter) {\n     int c=0;\n     for(int i=0;i<s.length();i++)\n     {\n         if(s[i]==letter)\n             c++;\n     }\n      return c*100/s.length();\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:07:04",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int maximumBags(vector<int>& c, vector<int>& r, int a) {\n     int res=0;\n     for(int i=0;i<c.size();i++)\n     {\n       c[i]=c[i]-r[i];  \n     }\n     sort(c.begin(),c.end());\n     for(int i=0;i<c.size();i++)\n     {\n         if(c[i]==0)\n             res++;\n         else if(c[i]<=a)\n         {\n             res++;\n             a=a-c[i];\n         }\n         if(a==0||c[i]>a)\n             break;\n     }\n        return res;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

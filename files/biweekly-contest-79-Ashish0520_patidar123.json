@@ -1,0 +1,20 @@
+{
+    "rank": 11307,
+    "username": "Ashish0520_patidar123",
+    "score": 7,
+    "finish_time": "01:08:13",
+    "Q1": {
+        "solve_time": "00:48:38",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool digitCount(string num) {\n        map<int,int>mp;\n        for(auto i:num)\n        {\n          //  int x = stoi(num[i]);\n              mp[i-'0']++;  \n        }\n        //int k=0;\n       for(int i=0;i<num.length();i++)\n       {\n           \n           if(mp[i] != num[i]-'0')\n               return false;\n       }\n        \n        return true;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:58:13",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    \n    int len(string &A)\n    {\n        stringstream ss(A);\n        int count = 0;\n        string str;\n        while(ss>>str)\n        {\n            count++;\n        }\n        return count;\n    }\n    \n    string largestWordCount(vector<string>& messages, vector<string>& senders) {\n        map<string,int>mp;\n        for(int i=0;i<senders.size();i++)\n        {\n            int x = len(messages[i]);\n            mp[senders[i]]+=x;\n        }\n        \n        int maxi = 0;\n        string res;\n        for(auto [n,c] : mp)\n        {\n            if(maxi < c)\n            {\n                maxi = c;\n                res = n;\n            }\n            else if(maxi == c)\n            {\n                res = max(res,n);\n            }\n        }\n        return res;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

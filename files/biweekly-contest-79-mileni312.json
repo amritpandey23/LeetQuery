@@ -1,0 +1,25 @@
+{
+    "rank": 3143,
+    "username": "mileni312",
+    "score": 12,
+    "finish_time": "00:31:09",
+    "Q1": {
+        "solve_time": "00:11:56",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool digitCount(string num) {\n      map<int,int> m;\n      //int k=num;\n      for(int i=0;i<num.length();i++)\n      {\n          //cout<<num[i]-'0'<<endl;\n          m[num[i]-'0']++;\n      }\n      for(int i=0;i<num.length();i++)\n      {\n          //cout<<i<<\" \"<<num[i]<<endl;\n          if(m.find(i)==m.end())\n          {\n              if(num[i]-'0'>0)\n                  return false;\n              else continue;\n          }\n          else if(m[i]!=(num[i]-'0'))\n          {\n              //cout<<i<<\" \"<<num[i]<<\" \"<<m[i]<<endl;\n              return false;\n          }\n      }\n        return true;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:18:32",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string largestWordCount(vector<string>& msg, vector<string>& s) {\n      map<string,int> m;\n      int mxc=0;\n      string res=\"\";\n      for(int i=0;i<s.size();i++)\n      {\n          stringstream ss;\n          ss<<msg[i];\n          string g;\n          while(ss>>g)\n          {\n              m[s[i]]++;\n          }\n          mxc=max(mxc,m[s[i]]);\n      }\n        for(auto x:m)\n        {\n            if(x.second==mxc)\n            {\n               if(res.length()==0)\n                   res=x.first;\n                else\n                    res=max(res,x.first);\n            }\n        }\n        return res;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "00:31:09",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    long long maximumImportance(int n, vector<vector<int>>& r) {\n     map<int,vector<int>> m;\n     priority_queue<pair<int,int>> degree;\n     map<int,int> val;\n     long long res=0;\n     for(auto x:r)\n     {\n         m[x[0]].push_back(x[1]);\n         m[x[1]].push_back(x[0]);\n     }\n     for(auto x:m)\n     {\n        degree.push({x.second.size(),x.first}); \n     }\n     while(!degree.empty())\n     {\n         val[degree.top().second]=n;\n         //cout<<degree.top().second<<\" \"<<n<<endl;\n         n--;\n         degree.pop();\n     }\n     for(auto x:r)\n     {\n        res+=(long long)val[x[0]]+val[x[1]];\n     }\n      return res;\n    }\n};"
+    },
+    "Q4": {}
+}
