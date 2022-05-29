@@ -1,0 +1,15 @@
+{
+    "rank": 9843,
+    "username": "mileni312",
+    "score": 3,
+    "finish_time": "00:07:28",
+    "Q1": {
+        "solve_time": "00:07:28",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int rearrangeCharacters(string s, string target) {\n     vector<int> v(26,0),b(26,0);\n     int c=INT_MAX;\n     for(int i=0;i<s.length();i++)\n         v[s[i]-'a']++;\n     for(int i=0;i<target.size();i++)\n     {\n        b[target[i]-'a']++;\n     }\n        for(int i=0;i<26;i++)\n        {\n            if(b[i]>0)\n            {\n                if(v[i]>=b[i])\n                {\n                    v[i]/=b[i];\n                }\n                else return 0;\n                c=min(c,v[i]);\n            }\n        }\n        //if(c==0)\n           // return 1;\n        return c;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

@@ -1,0 +1,15 @@
+{
+    "rank": 9538,
+    "username": "23Shree",
+    "score": 3,
+    "finish_time": "00:05:51",
+    "Q1": {
+        "solve_time": "00:05:51",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int rearrangeCharacters(string s, string target) {\n            map<char,int>mp;\n        for(auto x:target){\n            mp[x]++;\n        }\n        \n        map<char,int>mp1;\n        for(auto x:s){\n            if(mp.find(x)!=mp.end())\n            {\n                mp1[x]++;\n            }\n        }\n        \n        int ans=INT_MAX;\n        \n        for(auto x:mp){\n            int n=x.second;\n            int m=mp1[x.first];\n            \n            ans=min(ans,m/n);\n        }\n        \n        return ans;\n        \n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

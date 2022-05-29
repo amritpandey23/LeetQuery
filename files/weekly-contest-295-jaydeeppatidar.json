@@ -1,0 +1,15 @@
+{
+    "rank": 12673,
+    "username": "jaydeeppatidar",
+    "score": 3,
+    "finish_time": "00:35:24",
+    "Q1": {
+        "solve_time": "00:35:24",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int rearrangeCharacters(string s, string target) {\n        unordered_map<int,int> mp;\n        unordered_map<int,int> mpp;\n        for(auto x:s){\n            mp[x]++;\n        }\n        for(auto x:target){\n            mpp[x]++;\n        }\n        int ma=INT_MAX;\n        for(auto x:mpp){\n            ma=min(ma,mp[x.first]/x.second);\n        }\n        return ma;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}
