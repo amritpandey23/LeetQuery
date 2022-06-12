@@ -1,0 +1,20 @@
+{
+    "rank": 7553,
+    "username": "mileni312",
+    "score": 7,
+    "finish_time": "00:58:32",
+    "Q1": {
+        "solve_time": "00:08:15",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool strongPasswordCheckerII(string p) {\n        if(p.length()<8)\n            return false;\n      vector<bool> v(4,false);\n      for(int i=0;i<p.length();i++)\n      {\n          if(i>0&&p[i-1]==p[i])\n              return false;\n          if(islower(p[i]))\n              v[0]=1;\n          else if(isupper(p[i]))\n              v[1]=1;\n          else if(isdigit(p[i]))\n              v[2]=1;\n          else if(p[i]=='!'||p[i]=='@'||p[i]=='#'||p[i]=='$'||p[i]=='%'||p[i]=='^'||p[i]=='&'||p[i]=='*'||p[i]=='('||p[i]==')'||p[i]=='-'||p[i]=='+')\n              v[3]=1;\n          else return false;\n      }\n        for(int i=0;i<4;i++)\n            if(v[i]==false)\n                return false;\n        return true;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:48:32",
+        "fail_count": 2,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    vector<int> successfulPairs(vector<int>& s, vector<int>& p, long long scs) {\n      vector<int> v;\n      v=s;\n      sort(v.begin(),v.end());\n      sort(p.begin(),p.end());\n      map<int,int> m;\n      int j,start=p.size()-1;\n      bool flag=false;\n      for(int i=0;i<s.size();i++)\n      {\n          int lo=0,hi=start,mid;\n          while(lo<hi)\n          {\n              mid=lo+(hi-lo)/2;\n              if((long long)v[i]*p[mid]>=scs)\n                  hi=mid;\n              else \n                  lo=mid+1;\n          }\n          if((long long)v[i]*p[hi]>=scs)\n          {\n          m[v[i]]=p.size()-hi;\n          start=hi;\n          }\n          else \n              m[v[i]]=0;\n          //cout<<v[i]<<\" \"<<m[v[i]]<<endl;   \n      }\n      vector<int> res(s.size(),0);\n      for(int i=0;i<s.size();i++)\n         res[i]=m[s[i]];\n        return res;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

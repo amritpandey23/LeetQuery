@@ -1,0 +1,20 @@
+{
+    "rank": 5567,
+    "username": "23Shree",
+    "score": 7,
+    "finish_time": "00:24:53",
+    "Q1": {
+        "solve_time": "00:09:12",
+        "fail_count": 1,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    bool strongPasswordCheckerII(string password) {\n        bool digit=false,lower=false,upper=false,specialchar=false;\n        if(password.length()<8){\n            return false;\n        }\n        for(int i=0;i<password.length();i++){\n            if(i<password.length()-1 &&  password[i]==password[i+1]){\n                return false;\n            }\n            \n            if(password[i]>='0' && password[i]<='9'){\n                // cout<<i<<\" first \"<<password[i]<<endl;\n                digit=true;\n            }\n            else if(password[i]>='a' && password[i]<='z'){\n                // cout<<i<<\" second \"<<password[i]<<endl;\n                lower=true;\n            }\n            else if(password[i]>='A' && password[i]<='Z'){\n                // cout<<i<<\" third \"<<password[i]<<endl;\n                upper=true;\n            }\n            else{\n                // cout<<i<<\" fourth \"<<password[i]<<endl;\n                specialchar=true;\n            }\n            \n        }\n        if(digit && lower&& upper&& specialchar){\n            return true;\n        }\n        return false;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:19:53",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {\n        vector<int>ans;\n        int n=spells.size();\n        int m=potions.size();\n        // sort(spells.begin(),spells.end());\n        sort(potions.begin(),potions.end());\n        \n        for(int i=0;i<n;i++){\n            int count=0,left=0,right=m-1;\n            while(left<=right){\n                int mid=left+(right-left)/2;\n                if((long long)spells[i]*potions[mid]>=success){\n                    right=mid-1;\n                    \n                }\n                else{\n                    left=mid+1;\n                }\n            }\n            \n            ans.push_back(m-left);\n        }\n        return ans;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}

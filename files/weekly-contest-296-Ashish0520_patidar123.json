@@ -1,0 +1,15 @@
+{
+    "rank": 15311,
+    "username": "Ashish0520_patidar123",
+    "score": 3,
+    "finish_time": "00:59:16",
+    "Q1": {
+        "solve_time": "00:59:16",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    \n    int solve(vector<int>&nums , int n)\n    {\n        if(n==1)\n            return nums[0];\n        \n        vector<int>v(n/2);\n        int x = 0;\n        for(int i=0;i<n/2;i++)\n        {\n            if(i%2 == 0)\n            {\n                v[x++] = min(nums[2*i+1],nums[2*i]);\n            }\n            else\n            {\n                   v[x++] = max(nums[2*i+1],nums[2*i]);\n            }\n        }\n        return solve(v,n/2);\n    }\n    int minMaxGame(vector<int>& nums) {\n        int n = nums.size();\n        return solve(nums,n);\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

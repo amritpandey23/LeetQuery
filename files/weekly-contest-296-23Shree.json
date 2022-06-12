@@ -1,0 +1,25 @@
+{
+    "rank": 4991,
+    "username": "23Shree",
+    "score": 12,
+    "finish_time": "00:28:24",
+    "Q1": {
+        "solve_time": "00:07:36",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int minMaxGame(vector<int>& nums) {\n        int mini=true;\n        while(nums.size()>1){\n            vector<int>temp;\n        for(int i=0;i<nums.size()-1;i+=2){\n              if(mini){\n                  temp.push_back(min(nums[i],nums[i+1]));\n                  mini=false;\n              }\n            else{\n                temp.push_back(max(nums[i],nums[i+1]));\n                mini=true;\n            }\n        }\n            nums=temp;\n        }\n        return nums[0];\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:19:48",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int partitionArray(vector<int>& nums, int k) {\n        sort(nums.begin(),nums.end());\n        int count=1;\n        int i=1;\n        int maxi=nums[0];\n        int mini=nums[0];\n        while(i<nums.size()){\n            maxi=max(maxi,nums[i]);\n            if(maxi-mini >k){\n                count++;\n                maxi=nums[i];\n                mini=nums[i];\n            }\n            i++;\n        }\n        return count;\n    }\n};"
+    },
+    "Q3": {
+        "solve_time": "00:28:24",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    vector<int> arrayChange(vector<int>& nums, vector<vector<int>>& operations) {\n          unordered_map<int,int>mp;\n        for(int i=0;i<nums.size();i++){\n            mp[nums[i]]=i;\n        }\n        \n        for(int i=0;i<operations.size();i++){\n            int oldval=operations[i][0];\n            int newval=operations[i][1];\n            \n            int index=mp[oldval];\n            mp.erase(oldval);\n            nums[index]=newval;\n            mp[nums[index]]=index;\n        }\n        \n        return nums;\n    }\n};"
+    },
+    "Q4": {}
+}

@@ -1,0 +1,15 @@
+{
+    "rank": 14289,
+    "username": "mileni312",
+    "score": 3,
+    "finish_time": "00:24:35",
+    "Q1": {
+        "solve_time": "00:24:35",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int minMaxGame(vector<int>& nums) {\n      if(nums.size()==1)\n          return nums[0];\n      vector<int> v;\n      while(1)\n      {\n       int k=0,i=0;\n      while(i<nums.size())\n      {\n          if(k==0)\n          {\n          v.push_back(min(nums[i],nums[i+1]));\n              k=2;\n              }\n          else \n          {\n              v.push_back(max(nums[i],nums[i+1]));  \n              k=0;\n          }\n          i+=2;\n      }\n        if(v.size()==1)\n            break;\n          nums.clear();\n          nums=v;\n          v.clear();\n      }\n      return v[0];  \n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

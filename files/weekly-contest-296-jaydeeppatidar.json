@@ -1,0 +1,15 @@
+{
+    "rank": 14572,
+    "username": "jaydeeppatidar",
+    "score": 3,
+    "finish_time": "00:31:21",
+    "Q1": {
+        "solve_time": "00:31:21",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    \n    int minMaxGame(vector<int>& nums) {\n        if(nums.size()==1){\n            return nums[0];\n        }\n         int a=2;\n        \n        while(nums.size()>1){\n           int x=0;\n            vector<int> v;\n            for(int i=0 ;i<nums.size();i=i+2){\n                if(x%2==0){\n                    \n                    v.push_back(min(nums[i],nums[i+1]));\n                }else{\n                    v.push_back(max(nums[i],nums[i+1]));\n                }\n                x++;\n            }\n            nums=v;\n        }\n        return nums[0];\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}
