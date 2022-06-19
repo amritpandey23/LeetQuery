@@ -1,0 +1,15 @@
+{
+    "rank": 9928,
+    "username": "dead11",
+    "score": 3,
+    "finish_time": "00:02:46",
+    "Q1": {
+        "solve_time": "00:02:46",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string greatestLetter(string A) {\n        bool l[26] = {0},u[26] = {0};\n        for(auto i : A){\n            if(i >= 'A' and i <='Z') u[i - 'A'] = 1;\n            else l[i - 'a'] = 1;\n        }\n        for(int i = 25;i >= 0;i--){\n            if(l[i] and u[i]){\n                string Ans;\n                Ans.push_back(i + 'A');\n                return Ans;\n            }\n        }\n        return \"\";\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

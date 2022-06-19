@@ -1,0 +1,20 @@
+{
+    "rank": 9319,
+    "username": "wickedpro",
+    "score": 7,
+    "finish_time": "01:44:25",
+    "Q1": {
+        "solve_time": "00:07:22",
+        "fail_count": 0,
+        "lang": "java",
+        "code": "class Solution {\n    public String greatestLetter(String s) {\n        char i = 'Z';\n        while (i >= 'A') {\n            if (s.contains(i+\"\") && s.contains((char)(i + ' ')+\"\")) {\n                return \"\" + i;\n            }\n            i--;\n        }\n        return \"\";\n    }\n}"
+    },
+    "Q2": {
+        "solve_time": "01:14:25",
+        "fail_count": 6,
+        "lang": "java",
+        "code": "class Solution {\n    public int minimumNumbers(int num, int k) {\n        if (num == 0) {\n            return 0;\n        }\n        if (num % 10 == 0 && k == 0) {\n            return 1;\n        }\n        if (k == 0 || num < k || (num % 2 != 0 && k % 2 == 0)) {\n            return -1;\n        }\n        int ans = 1;\n        while (num >= k && (num % 10) != k) {\n            ans++;\n            num -= k;\n        }\n        if (num < k) {\n            return -1;\n        }\n        return ans;\n    }\n}"
+    },
+    "Q3": {},
+    "Q4": {}
+}

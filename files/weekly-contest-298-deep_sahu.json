@@ -1,0 +1,15 @@
+{
+    "rank": 13471,
+    "username": "deep_sahu",
+    "score": 3,
+    "finish_time": "00:31:25",
+    "Q1": {
+        "solve_time": "00:31:25",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string greatestLetter(string s) {\n        int n = s.length();\n        vector<int> v1(26,0);\n        vector<int> v2(26,0);\n        string maxi=\"\";\n        for(int i=0;i<n;i++)\n        {\n            if(isupper(s[i]))\n            {\n                v1[s[i]-'A']++;\n            }\n            else if(islower(s[i]))\n            {\n                v2[s[i]-'a']++;\n            }\n        }\n        for(int i=0;i<26;i++)\n        {\n            if(v1[i]>0 && v2[i]>0)\n            {\n                // cout<<i<<endl;\n                maxi = i+'A';\n            }\n        }\n        return maxi;\n    }\n};"
+    },
+    "Q2": {},
+    "Q3": {},
+    "Q4": {}
+}

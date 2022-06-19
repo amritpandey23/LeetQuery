@@ -1,0 +1,20 @@
+{
+    "rank": 6523,
+    "username": "23Shree",
+    "score": 7,
+    "finish_time": "00:48:21",
+    "Q1": {
+        "solve_time": "00:11:01",
+        "fail_count": 0,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    string greatestLetter(string s) {\n           sort(s.begin(),s.end());\n        int i=0;\n        unordered_set<char>stu;\n        unordered_set<char>stl;\n        while(i<s.length()){\n            if(isupper(s[i]))\n            stu.insert(s[i]);\n            else{\n                stl.insert(s[i]);\n            }\n            i++;\n        }\n        char ans='$';\n        bool flag=false;\n        for(auto x:stu){\n            if(stl.count(tolower(x))==1){\n                if(ans=='$')\n                ans=x;\n                else if(ans<x){\n                    ans=x;\n                }\n            }\n            // cout<<\" ans is \"<<ans<<endl;\n        }\n        if(ans=='$'){\n            return \"\";\n        }\n        string temp=\"\";\n        temp=temp+ans;\n        return temp;\n    }\n};"
+    },
+    "Q2": {
+        "solve_time": "00:33:21",
+        "fail_count": 3,
+        "lang": "cpp",
+        "code": "class Solution {\npublic:\n    int ans=INT_MAX;\n    int dp[3001][3001];\n    Solution(){\n        memset(dp,-1,sizeof(dp));\n    }\n    int helpans(vector<int>&data,int i,int count,int sum,int target){\n        if(sum==target){\n            // cout<<\" count is \"<<count<<endl;\n            // ans=min(ans,count);\n            return count;\n        }\n        if(i<0){\n            return INT_MAX;\n        }\n        \n        if(dp[i][sum]!=-1){\n            return dp[i][sum];\n        }\n        int l=INT_MAX,r=INT_MAX,k=INT_MAX;\n        if(sum+data[i] > target){\n           l= helpans(data,i-1,count,sum,target);\n        }\n        else{\n           k= helpans(data,i,count+1,sum+data[i],target);\n            r= helpans(data,i-1,count,sum,target);\n           \n        }\n        \n        return dp[i][sum]=min(l,min(r,k));\n    }\n    int minimumNumbers(int num, int k) {\n        if(num==0){\n            return 0;\n        }\n        vector<int>data;\n        for(int i=1;i<=num;i++){\n            int unit=i%10;\n            if(unit==k){\n                data.push_back(i);\n            }\n        }\n        int temp=0;\n        // for(auto x:data){\n        //     cout<<x<<\" \";\n        // }\n       ans= helpans(data,data.size()-1,temp,0,num);\n        if(ans==INT_MAX){\n            return -1;\n        }\n        return ans;\n    }\n};"
+    },
+    "Q3": {},
+    "Q4": {}
+}
